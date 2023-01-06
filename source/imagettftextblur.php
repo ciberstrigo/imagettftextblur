@@ -19,7 +19,7 @@
  * AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
- * PHP version 5
+ * PHP version 8
  *
  * @category  Andrewgjohnson
  * @package   Imagettftextblur
@@ -34,26 +34,26 @@ if (!function_exists('imagettftextblur')) {
      * Imagettftextblur is a drop in replacement for imagettftext with added
      * parameters to add blur, glow and shadow effects to your PHP GD images.
      *
-     * @param resource $image          <p>An image resource, returned by one of the
+     * @param GdImage $image <p>An image object, returned by one of the
      *    image creation functions, such as imagecreatetruecolor().</p>
-     * @param float    $size           <p>The font size. Depending on your version
+     * @param float $size <p>The font size. Depending on your version
      *    of GD, this should be specified as the pixel size (GD1) or point size
      *    (GD2).</p>
-     * @param float    $angle          <p>The angle in degrees, with 0 degrees being
+     * @param float $angle <p>The angle in degrees, with 0 degrees being
      *    left-to-right reading text. Higher values represent a counter-clockwise
      *    rotation. For example, a value of 90 would result in bottom-to-top reading
      *    text.</p>
-     * @param int      $x              <p>The coordinates given by x and y will
+     * @param int $x <p>The coordinates given by x and y will
      *    define the basepoint of the first character (roughly the lower-left corner
      *    of the character). This is different from the imagestring(), where x and y
      *    define the upper-left corner of the first character. For example, "top
      *    left" is 0, 0.</p>
-     * @param int      $y              <p>The y-ordinate. This sets the position of
+     * @param int $y <p>The y-ordinate. This sets the position of
      *    the fonts baseline, not the very bottom of the character.</p>
-     * @param int      $color          <p>The color index. Using the negative of a
+     * @param int $color <p>The color index. Using the negative of a
      *    color index has the effect of turning off antialiasing. See
      *    imagecolorallocate().</p>
-     * @param string   $fontfile       <p>The path to the TrueType font you wish to
+     * @param string $fontfile <p>The path to the TrueType font you wish to
      *    use.</p><p>Depending on which version of the GD library PHP is using, when
      *    fontfile does not begin with a leading / then .ttf will be appended to the
      *    filename and the library will attempt to search for that filename along a
@@ -63,7 +63,7 @@ if (!function_exists('imagettftextblur')) {
      *    feature will result in the warning message: Warning: Could not find/open
      *    font. For these affected versions, the only solution is moving the font to
      *    a path which does not contain spaces.</p>
-     * @param string   $text           <p>The text string in UTF-8 encoding.</p>
+     * @param string $text <p>The text string in UTF-8 encoding.</p>
      *    <p>May include decimal numeric character references (of the form:
      *    &amp;#8364;) to access characters in a font beyond position 127. The
      *    hexadecimal format (like &amp;#xA9;) is supported.Strings in UTF-8
@@ -72,9 +72,9 @@ if (!function_exists('imagettftextblur')) {
      *    named entities into UTF-8 strings.</p><p>If a character is used in the
      *    string which is not supported by the font, a hollow rectangle will
      *    replace the character.</p>
-     * @param int      $blur_intensity <p>The number of times you would like to
+     * @param int $blur_intensity <p>The number of times you would like to
      *    apply your filter to your text (default is zero)</p>
-     * @param int      $blur_filter    <p>The filter you would like applied to your
+     * @param int $blur_filter <p>The filter you would like applied to your
      *    text (default is IMG_FILTER_GAUSSIAN_BLUR)</p>
      *
      * @return mixed Returns an array with 8 elements representing four points
@@ -84,7 +84,7 @@ if (!function_exists('imagettftextblur')) {
      * when you see the text horizontally. Returns FALSE on error.
      */
     function imagettftextblur(
-        &$image,
+        \GdImage $image,
         $size,
         $angle,
         $x,

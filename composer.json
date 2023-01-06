@@ -21,10 +21,15 @@
             "name": "Philip van Heemstra",
             "homepage": "https://github.com/vHeemstra",
             "role": "Contributor"
+        },
+        {
+            "name": "Leonid Averianov",
+            "homepage": "https://github.com/ciberstrigo",
+            "role": "Contributor"
         }
     ],
     "require": {
-        "php": ">=5.0.0",
+        "php": ">=8.0",
         "ext-gd": "*"
     },
     "autoload": {
